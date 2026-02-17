@@ -24,4 +24,29 @@
  */
 export function getTicketPrice(age, isWeekend) {
   // Your code here
+ 
+  if( typeof age != "number" || age <0)
+  {
+    return -1;
+  }
+  let price;              //age based pricing
+ if (age <= 12) {
+    price = 8;
+  } 
+  else if (age >= 13 && age <= 17) {
+    price = 12;
+  } 
+  else if (age >= 18 && age <= 59) {
+    price = 15;
+  } 
+  else {
+    price = 10;
+  }
+
+                          // Weekend surcharge
+  if (isWeekend === true) {
+    price += 3;
+  } 
+
+  return price;
 }
